@@ -1,5 +1,7 @@
-from Client import Client, strip_forward_slash
-from prometheus_client import exposition, Counter,Gauge, CollectorRegistry
+from metrics_accumulator_client import Client
+from prometheus_client import exposition, Counter,Gauge, CollectorRegistry, metrics
+
+metrics.disable_created_metrics()
 registry = CollectorRegistry()
 c = Counter("hello_total", "dock", labelnames=['application'], registry=registry)
 c.labels(["app"]).inc()
