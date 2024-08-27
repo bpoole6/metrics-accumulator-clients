@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Client = exports.ClientResponse = void 0;
-var index_1 = require("axios/index");
+var axios_1 = require("axios");
 var ClientResponse = /** @class */ (function () {
     function ClientResponse(request_response) {
         this.request_response = request_response;
@@ -16,11 +16,11 @@ var Client = /** @class */ (function () {
         if (url === null || url.trim() === "") {
             throw new Error("url cannot be empty or blank");
         }
-        this.url = url;
+        this.url = this.stripForwardSlash(url);
         this.xApiKey = xApiKey;
     }
     Client.prototype.updateMetrics = function (metricGroup, registry) {
-        return (0, index_1.default)({
+        return (0, axios_1.default)({
             url: "".concat(this.url, "/update/").concat(metricGroup),
             headers: { "Content-Type": "text/plain", "x-api-key": this.xApiKey },
             method: 'POST',
@@ -32,7 +32,7 @@ var Client = /** @class */ (function () {
         });
     };
     Client.prototype.getMetricGroup = function (metricGroup) {
-        return (0, index_1.default)({
+        return (0, axios_1.default)({
             url: "".concat(this.url, "/metrics/").concat(metricGroup),
             method: 'GET',
         }).then(function (res) {
@@ -42,7 +42,7 @@ var Client = /** @class */ (function () {
         });
     };
     Client.prototype.reloadConfigurations = function () {
-        return (0, index_1.default)({
+        return (0, axios_1.default)({
             url: "".concat(this.url, "/reload-configuration"),
             method: 'PUT',
         }).then(function (res) {
@@ -52,7 +52,7 @@ var Client = /** @class */ (function () {
         });
     };
     Client.prototype.resetMetricGroup = function (metricGroup) {
-        return (0, index_1.default)({
+        return (0, axios_1.default)({
             url: "".concat(this.url, "/reset-metric-group/").concat(metricGroup),
             method: 'PUT',
         }).then(function (res) {
@@ -62,7 +62,7 @@ var Client = /** @class */ (function () {
         });
     };
     Client.prototype.serviceDiscovery = function () {
-        return (0, index_1.default)({
+        return (0, axios_1.default)({
             url: "".concat(this.url, "/service-discovery"),
             method: 'GET',
         }).then(function (res) {
@@ -72,7 +72,7 @@ var Client = /** @class */ (function () {
         });
     };
     Client.prototype.currentConfigurations = function () {
-        return (0, index_1.default)({
+        return (0, axios_1.default)({
             url: "".concat(this.url, "/current-configurations"),
             method: 'GET',
         }).then(function (res) {

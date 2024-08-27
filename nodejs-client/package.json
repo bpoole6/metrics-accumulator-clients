@@ -1,11 +1,12 @@
 {
   "name": "metrics-accumulator-client",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.1.2",
+  "description": "A nodejs client for metrics accumulator",
   "main": "hello.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc client.ts"
+    "build": "tsc client.ts",
+    "upload": "npm version patch && npm publish"
   },
   "private": false,
   "dependencies": {
@@ -17,5 +18,13 @@
   "devDependencies": {
     "typescript": "^5.5.4"
   },
-  "homepage": ""
+  "homepage": "https://github.com/bpoole6/metrics-accumulator-clients/tree/main/nodejs-client",
+  "repository": "https://github.com/bpoole6/metrics-accumulator-clients/tree/main/nodejs-client",
+  "keywords": [
+    "metrics",
+    "accumulator",
+    "prometheus",
+    "aggregation",
+    "pushgateway"
+  ]
 }

@@ -1,6 +1,6 @@
 // const prom = require("prom-client")
 import {Registry} from "prom-client"
-import axios from "axios/index";
+import axios from "axios";
 import {AxiosResponse} from "axios";
 
 export class ClientResponse {
@@ -23,7 +23,7 @@ export class Client {
         if (url === null || url.trim() === "") {
             throw new Error("url cannot be empty or blank")
         }
-        this.url = url;
+        this.url = this.stripForwardSlash(url);
         this.xApiKey = xApiKey;
     }
 
@@ -102,6 +102,3 @@ export class Client {
         return this.stripForwardSlash(s.substring(0, s.length - 1));
     }
 }
-
-
-
