@@ -26,7 +26,7 @@ docker run \
 Create main.js file
 ```node
 import {Registry, Counter} from "prom-client"
-
+import {Client} from "metrics-accumulator-client";
 const registry = new Registry()
 new Counter({
     name : "counter_example_total",
