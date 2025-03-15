@@ -4,13 +4,19 @@
 
 
 # metrics-accumulator-client
-This is the official NodeJs client for [metric accumulator](https://github.com/bpoole6/metrics-accumulator). 
+The official NodeJs client for [metric accumulator](https://github.com/bpoole6/metrics-accumulator). 
 
 
 ## Get Started
 
 Start an instance of metric-accumulator
 
+Installation
+```bash
+npm install metrics-accumulator-client -S
+```
+
+Start metrics accumulator
 ```bash
 docker run \ 
  -p 8080:8080 \ 
