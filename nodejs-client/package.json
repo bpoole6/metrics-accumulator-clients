@@ -2,10 +2,24 @@
   "name": "metrics-accumulator-client",
   "version": "1.1.2",
   "description": "A nodejs client for metrics accumulator",
-  "main": "hello.js",
+  "main": "./dist/cjs/client.js",
+  "module": "./dist/esm/client.js",
+  "types": "./dist/cjs/client.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/client.js",
+      "require": "./dist/cjs/client.js",
+      "types": "./dist/cjs/client.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc client.ts",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "npm run build:esm && npm run build:cjs",
     "upload": "npm version patch && npm publish"
   },
   "private": false,

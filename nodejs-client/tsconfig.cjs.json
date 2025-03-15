@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2020", // Or a target compatible with your Node.js version
+    "module": "commonjs", // Use commonjs for CJS output
+    "moduleResolution": "node",
+    "outDir": "dist/cjs", // Output directory for CJS
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "es2020",
+      "esnext.asynciterable"
+    ] // include async iterable for modern async features
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
